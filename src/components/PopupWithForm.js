@@ -18,6 +18,13 @@ function PopupWithForm(props) {
           className={`popup__form popup__form_${props.name}" name="${props.name}`}
         >
           {props.children}
+          <button
+            type="submit"
+            className="popup__submit"
+            aria-label="Сохранить изменения."
+          >
+            {props.buttonText}
+          </button>
         </form>
       </div>
     </div>

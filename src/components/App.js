@@ -6,33 +6,33 @@ import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 
 function App() {
-  const [isEditProfilePopupOpen, setEditProfilePopupOpen] =
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
     React.useState(false);
-  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
-  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState(null);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState({});
 
   const handleEditAvatarClick = () => {
-    setEditAvatarPopupOpen(true);
+    setIsEditAvatarPopupOpen(true);
   };
 
   const handleEditProfileClick = () => {
-    setEditProfilePopupOpen(true);
+    setIsEditProfilePopupOpen(true);
   };
 
   const handleAddPlaceClick = () => {
-    setAddPlacePopupOpen(true);
+    setIsAddPlacePopupOpen(true);
   };
 
-  const handleCardClick = (link) => {
-    setSelectedCard(link);
+  const handleCardClick = (card) => {
+    setSelectedCard(card);
   };
 
   const closeAllPopups = () => {
-    setEditAvatarPopupOpen(false);
-    setEditProfilePopupOpen(false);
-    setAddPlacePopupOpen(false);
-    setSelectedCard(null);
+    setIsEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setSelectedCard({});
   };
 
   return (
@@ -49,6 +49,7 @@ function App() {
         <PopupWithForm
           name={"edit"}
           title={"Редактировать профиль"}
+          buttonText={"Сохранить"}
           isOpen={isEditProfilePopupOpen}
           onclose={closeAllPopups}
         >
@@ -76,17 +77,11 @@ function App() {
           <span id="about-error" className="popup__error">
             Нет ошибки
           </span>
-          <button
-            type="submit"
-            className="popup__submit popup__submit_edit"
-            aria-label="Сохранить изменения."
-          >
-            Сохранить
-          </button>
         </PopupWithForm>
         <PopupWithForm
           name={"add"}
           title={"Новое место"}
+          buttonText={"Создать"}
           isOpen={isAddPlacePopupOpen}
           onclose={closeAllPopups}
         >
@@ -112,18 +107,11 @@ function App() {
           <span id="adress-error" className="popup__error">
             Нет ошибки
           </span>
-          <button
-            type="submit"
-            className="popup__submit popup__submit_add popup__submit_disabled"
-            aria-label="Сохранить изменения."
-            disabled
-          >
-            Создать
-          </button>
         </PopupWithForm>
         <PopupWithForm
           name={"link"}
           title={"Обновить аватар"}
+          buttonText={"Сохранить"}
           isOpen={isEditAvatarPopupOpen}
           onclose={closeAllPopups}
         >
@@ -137,14 +125,6 @@ function App() {
           <span id="link-error" className="popup__error">
             Нет ошибки
           </span>
-          <button
-            type="submit"
-            className="popup__submit popup__submit_link popup__submit_disabled"
-            aria-label="Сохранить изменения."
-            disabled
-          >
-            Сохранить
-          </button>
         </PopupWithForm>
         <PopupWithForm name={"delete"} title={"Вы уверены?"}>
           <button

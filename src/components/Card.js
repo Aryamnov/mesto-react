@@ -2,7 +2,7 @@ import React from "react";
 
 function Card(props) {
   const handleCardClick = () => {
-    props.onCardClick(props.card.link);
+    props.onCardClick(props.card);
   };
 
   return (

@@ -3,7 +3,7 @@ import React from "react";
 function ImagePopup(props) {
   return (
     <div
-      className={` popup popup_show_image ${props.card ? `popup_opened` : ``} `}
+      className={` popup popup_show_image ${props.card.link ? `popup_opened` : ``} `}
     >
       <div className="popup__picture">
         <button
@@ -14,9 +14,9 @@ function ImagePopup(props) {
         <img
           className="popup__image"
           alt="Контентное изображение."
-          src={props.card}
+          src={props.card.link}
         />
-        <p className="popup__info-image"></p>
+        <p className="popup__info-image">{props.card.name}</p>
       </div>
     </div>
   );
