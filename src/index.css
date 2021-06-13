@@ -24,6 +24,7 @@
 @import url(./blocks/element/__like-span/element__like-span.css);
 @import url(./blocks/element/__like/_status/element__like_status_active.css);
 @import url(./blocks/element/__trash-can/element__trash-can.css);
+@import url(./blocks/element/__trash-can/_hidden/element__trash-can_hidden.css);
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copyright/footer__copyright.css);
 @import url(./blocks/popup/popup.css);
