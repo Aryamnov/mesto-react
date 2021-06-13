@@ -60,6 +60,9 @@ function App() {
     api.setUserInfo(info.name, info.about).then((data) => {
       setCurrentUser(data);
       closeAllPopups();
+    })
+    .catch((err) => {
+      console.log(err);
     });
   };
 
@@ -67,6 +70,9 @@ function App() {
     api.newAvatar(info.link).then((data) => {
       setCurrentUser(data);
       closeAllPopups();
+    })
+    .catch((err) => {
+      console.log(err);
     });
   };
 
@@ -77,6 +83,9 @@ function App() {
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
       setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+    })
+    .catch((err) => {
+      console.log(err);
     });
   }
 
@@ -85,15 +94,20 @@ function App() {
     api.deleteCard(card._id).then((data) => {
       const newCards = cards.filter((c) => c._id !== card._id);
       setCards(newCards);
+    })
+    .catch((err) => {
+      console.log(err);
     });
   }
 
   function handleAddPlaceSubmit(card) {
-    console.log(card);
     // Отправляем запрос в API и удаляем карточку
     api.addNewCard(card).then((newCard) => {
       setCards([newCard, ...cards]);
       closeAllPopups();
+    })
+    .catch((err) => {
+      console.log(err);
     });
   }
 
@@ -126,15 +140,7 @@ function App() {
           onClose={closeAllPopups}
           onUpdateAvatar={handleUpdateAvatar}
         />
-        <PopupWithForm name={"delete"} title={"Вы уверены?"}>
-          <button
-            type="submit"
-            className="popup__submit popup__submit_delete"
-            aria-label="Удалить."
-          >
-            Да
-          </button>
-        </PopupWithForm>
+        <PopupWithForm name={"delete"} title={"Вы уверены?"} buttonText={"Да"} />
         <ImagePopup card={selectedCard} onclose={closeAllPopups} />
       </div>
     </CurrentUserContext.Provider>
