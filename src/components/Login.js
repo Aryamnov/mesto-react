@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Header from "./Header";
+import InfoTooltip from "./InfoTooltip";
 
 function Login() {
     return(
@@ -13,6 +14,7 @@ function Login() {
                     <button className="login__button">Войти</button>
                 </form>
             </div>
+            <InfoTooltip />
         </div>
     )
 }
