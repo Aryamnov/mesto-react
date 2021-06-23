@@ -56,3 +56,9 @@
 @import url(./blocks/register/__link/register__link.css);
 @import url(./blocks/register/__signature/register__signature.css);
 @import url(./blocks/register/__title/register__title.css);
+@import url(./blocks/info-tool/info-tool.css);
+@import url(./blocks/info-tool/_opened/info-tool_opened.css);
+@import url(./blocks/info-tool/__container/info-tool__container.css);
+@import url(./blocks/info-tool/__close/info-tool__close.css);
+@import url(./blocks/info-tool/__image/info-tool__image.css);
+@import url(./blocks/info-tool/__paragraph/info-tool__paragraph.css);

@@ -13,7 +13,7 @@ function Register() {
                     <input name="password" placeholder="Пароль" className="register__input" type="password" minLength="2" required />
                     <button className="register__button">Зарегистрироваться</button>
                 </form>
-                <p className="register__signature">Уже зарегистрированы? <Link to="/sign-in" className="register__link">Войти</Link></p>
+                <p className="register__signature">Уже зарегистрированы? <Link to="/signin" className="register__link">Войти</Link></p>
             </div>
         </div>
     )

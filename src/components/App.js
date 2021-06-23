@@ -17,11 +17,13 @@ import ImagePopup from "./ImagePopup";
 import Login from "./Login";
 import Register from "./Register";
 import api from "../utils/api";
+import ProtectedRoute from './ProtectedRoute';
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
+  const [loggedIn, setLoggedIn] = React.useState(false);
 
   React.useEffect(() => {
     api
